@@ -36,5 +36,25 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>http://beta.taxistock.ru</key>
+            <dict>
+                <key>NSIncludeSubdomains</key>
+                <true/>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
+        
+    </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>App need to know(when it starts) your location</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>App tracking your location to calculate your activity time</string>
 </dict>
 </plist>
