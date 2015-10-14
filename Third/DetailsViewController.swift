@@ -20,9 +20,7 @@ class DetailsViewController: UIViewController {
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
     
-    @IBAction func showLocations() {
-        mapView.setRegion(region, animated: true)
-    }
+  
     // MARK: Properties
     var city: City!
     var region: MKCoordinateRegion!
@@ -33,6 +31,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.addAnnotation(city)
         initializeManager()
         showCity()
     }

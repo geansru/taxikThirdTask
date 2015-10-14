@@ -22,11 +22,9 @@ class HomeViewController: UIViewController {
         if let _ = result as? [City] {
             list = result as! [City]
             tableView.reloadData()
-            print("result is type of [City]")
         } else {
             print("result is NOT type of [City]")
         }
-        print(__FUNCTION__)
         refresher.endRefreshing()
     }
     
@@ -39,7 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         entity = Entity(closure: closure)
         configureUI()
-        if list.isEmpty { entity.refresh() }
+        entity.refresh()
         initRefresher()
     }
     
@@ -72,8 +70,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let obj = list[indexPath.row]
-        cell.textLabel?.text = obj.city_name
+        let city = list[indexPath.row]
+        cell.textLabel?.text = city.city_name
         return cell
     }
     
